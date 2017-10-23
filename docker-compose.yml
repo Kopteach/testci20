@@ -2,13 +2,11 @@ version: '2'
 services:
    mydbapp:
       build: ./web
+      image: myweb:latest
       ports:
         - "8888:8080"
       depends_on:
         - db
-   web:
-      build: ./web
-      image: myweb:latest
       container_name: myweb
 
    db:

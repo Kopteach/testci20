@@ -36,13 +36,13 @@ jobs:
             docker-compose build
 
       - deploy:
-          name: Build and push Docker image
+          name: Build and push Docker image 
           command: |
-	    docker login -e $DOCKER_HUB_EMAIL -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
-	    docker tag mydb $DOCKER_HUB_USER_ID/testci20_db:$CIRCLE_SHA1
+            docker login -e $DOCKER_HUB_EMAIL -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD	    
+            docker tag mydb $DOCKER_HUB_USER_ID/testci20_db:$CIRCLE_SHA1
             docker tag myweb $DOCKER_HUB_USER_ID/testci20_myweb:$CIRCLE_SHA1
-	    docker tag mydb $DOCKER_HUB_USER_ID/testci20_db:latest
-	    docker tag myweb $DOCKER_HUB_USER_ID/testci20_myweb:latest
+            docker tag mydb $DOCKER_HUB_USER_ID/testci20_db:latest
+            docker tag myweb $DOCKER_HUB_USER_ID/testci20_myweb:latest
             docker push $DOCKER_HUB_USER_ID/testci20_db:latest
-	    docker push $DOCKER_HUB_USER_ID/testci20_web:latest
+            docker push $DOCKER_HUB_USER_ID/testci20_web:latest
 
