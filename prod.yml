@@ -1,20 +1,18 @@
 version: '2'
 services:
    mydbapp:
-      build: ./web
-      image: myweb:latest
+      image: kopteach/testci20_myweb
       ports:
-        - "8888:8080"
+        - "8888:8888"
       depends_on:
         - db
       container_name: myweb
 
    db:
-      build: ./db
-      image: mydb:latest
+      image: kopteach/testci20_db
       volumes:
         - db_data:/var/lib/postgresql/data
       container_name: db
- 
+
 volumes:
    db_data:
