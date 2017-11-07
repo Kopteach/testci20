@@ -1,12 +1,14 @@
-version: '2'
+version: '3.3'
 services:
    mydbapp:
       image: kopteach/testci20_myweb
       ports:
-        - "8888:8888"
+        - "8080:8080"
       depends_on:
         - db
       container_name: myweb
+      deploy :
+        - replicas : 2
 
    db:
       image: kopteach/testci20_db
